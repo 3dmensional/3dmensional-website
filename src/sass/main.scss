@@ -1,0 +1,17 @@
+* {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// general styles
+.d-flex {
+  display: flex;
+}
+
+a.nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+@import 'nav';

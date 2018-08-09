@@ -1,0 +1,82 @@
+nav {
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  padding: 10px 1em;
+  justify-content: space-between;
+  align-items: center;
+
+  figure {
+    width: 70px;
+
+
+    svg {
+      width: 100%;
+
+      path {
+        transition: all ease .3s;
+      }
+
+      &.negative,
+      &.positive {
+        &:hover {
+          path {
+            transition: all ease .3s;
+          }
+
+          .container {
+            fill: transparent;
+          }
+        }
+      }
+
+      &.negative:hover path {
+        fill: rgb(0, 0, 0);
+      }
+
+      &.positive:hover path {
+            fill: rgb(255, 255, 255);
+      }
+
+    }
+  }
+
+  .menu {
+    max-width: 25em;
+
+    ul {
+      justify-content: space-between;
+      align-content: center;
+      font-size: 1em;
+
+      li {
+        padding: 1em;
+        position: relative;
+        justify-content: center;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          bottom: 0;
+          border-top: 3px solid #000;
+          transition: width ease .3s;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          .nav-link {
+            color: #000;
+            transition: all ease .3s;
+          }
+
+          transition: all ease .3s;
+
+          &::after {
+            width: 70%;
+            transition: width ease .3s;
+          }
+        }
+      }
+    }
+  }
+}
