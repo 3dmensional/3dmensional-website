@@ -6,10 +6,15 @@
       </div>
     </div>
     <div class="d-grid">
-      <h1 class="d-flex">Services</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in pharetra justo. Nulla interdum venenatis est. Nunc leo nulla, tempus in leo in, posuere elementum nisi. Vivamus augue mauris, facilisis eu placerat non, gravida quis odio. Suspendisse id tempor risus. Proin felis justo, finibus id faucibus varius, bibendum a libero. Donec arcu augue, hendrerit at vestibulum at, interdum ut nisi. Pellentesque porta scelerisque arcu, et sagittis neque malesuada suscipit. Cras at nulla eleifend, convallis nisl id, feugiat urna. Nunc ornare quam nec accumsan sodales. Curabitur malesuada diam et quam blandit euismod. Sed malesuada ante eu ligula fermentum aliquam. Integer efficitur in elit varius aliquet. Maecenas laoreet lacinia purus, at condimentum lorem auctor eu.
-      </p>
+      <transition name="fade" appear>
+        <h1 class="show fade-element d-flex">{{ title }}</h1>
+      </transition>
+
+      <transition name="fade" appear>
+        <p class="show fade-element">
+          {{ text }}
+        </p>
+      </transition>
       <div class="d-grid services-elements">
         <span></span>
         <span></span>
@@ -18,19 +23,57 @@
       </div>
     </div>
 
-    <div class="services-controller">
+    <div class="d-flex services-controller">
 
+      <div class="action-container">
+        <a href="javascript:;" @click.prevent="title = 'Development'; setAppear(title)"></a>
+        <Cube />
+      </div>
+
+      <div class="action-container">
+        <a href="javascript:;" @click.prevent="title = 'Design'; setAppear(title)"></a>
+        <Cube />
+      </div>
+
+      <div class="action-container">
+        <a href="javascript:;" @click.prevent="title = 'Marketing'; setAppear(title)"></a>
+        <Cube />
+      </div>
     </div>
   </section>
 </template>
 
 <script>
   import Chevron from '../assets/chevron.svg';
+  import Cube from '../assets/cube.svg';
 
   export default {
     name: 'Services',
     components: {
-      Chevron
+      Chevron,
+      Cube
+    },
+    data: () => {
+      return {
+        title: 'Development',
+        text: 'Hello World',
+        active: 0
+
+      };
+    },
+    methods: {
+      setAppear: (title) => {
+        var elements = document.getElementsByClassName('fade-element');
+
+        for (let i = elements.length - 1; i >= 0; i--)
+          elements[i].classList.toggle('show');
+
+        setTimeout(function () {
+          for (let i = elements.length - 1; i >= 0; i--)
+            elements[i].classList.toggle('show');
+        }, 100);
+
+      }
     }
   };
 </script>

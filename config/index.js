@@ -50,7 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'https://josedan10.github.io/josedan.js/',
+    assetsPublicPath: 'https://3dmensional.github.io/3dmensional-website/',
 
     /**
      * Source Maps

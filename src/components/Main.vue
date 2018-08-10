@@ -60,7 +60,6 @@
         event.preventDefault();
         var target = event.target.href.replace('#', '');
         target = target.split('/');
-        console.log(target);
         var last = target[target.length - 1];
         var element = (last === '') ? document.getElementById('Home') : document.getElementById(last);
         smoothScroll(element, 1000);
