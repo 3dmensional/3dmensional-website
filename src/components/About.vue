@@ -1,5 +1,5 @@
 <template>
-  <section class="d-flex about-us">
+  <section id="About" class="d-flex about-us">
     <div>
 
       <h1>About Us</h1>

@@ -1,6 +1,10 @@
 <template>
   <section class="d-flex services">
-    <Chevron class="chevron"></Chevron>
+    <div class="chevron-container">
+      <div style="height: 100%" class="chevron-svg" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+        <Chevron id="Services" class="chevron"></Chevron>
+      </div>
+    </div>
     <div class="d-grid">
       <h1 class="d-flex">Services</h1>
       <p>
