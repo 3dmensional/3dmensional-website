@@ -9,5 +9,19 @@
       </p>
     </div>
 
+    
+    <ArrowDown class="black"/>
   </section>
 </template>
+
+<script>
+  import ArrowDown from '../assets/down-arrow.svg';
+
+  export default {
+    name: 'About',
+    components: {
+      ArrowDown
+    }
+  };
+
+</script>

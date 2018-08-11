@@ -25,7 +25,7 @@
 
     <div class="d-flex services-controller">
 
-      <div class="action-container">
+      <div class="active action-container">
         <a href="javascript:;" @click.prevent="title = 'Development'; setAppear(title)"></a>
         <Cube />
       </div>
@@ -64,6 +64,8 @@
     methods: {
       setAppear: (title) => {
         var elements = document.getElementsByClassName('fade-element');
+        var controllerActive = document.querySelector('.active.action-container');
+        var controllers = document.getElementsByClassName('action-container');
 
         for (let i = elements.length - 1; i >= 0; i--)
           elements[i].classList.toggle('show');
@@ -72,6 +74,22 @@
           for (let i = elements.length - 1; i >= 0; i--)
             elements[i].classList.toggle('show');
         }, 100);
+
+        controllerActive.classList.remove('active');
+
+        switch (title) {
+          case 'Development':
+            controllers[0].classList.add('active');
+            break;
+
+          case 'Design':
+            controllers[1].classList.add('active');
+            break;
+
+          default:
+            controllers[2].classList.add('active');
+            break;
+        }
 
       }
     }

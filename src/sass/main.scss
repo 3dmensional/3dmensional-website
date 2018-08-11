@@ -23,6 +23,10 @@
   font-family: 'Walkway', Arial, Helvetica, sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 // Vue transitions ----------------------
 
 .fade-enter-active, .fade-leave-active {
@@ -52,6 +56,17 @@ h2 {
 p {
   margin-bottom: 2em;
   line-height: 1.5em;
+  font-size: 1.2em;
+}
+
+label {
+  font-size: 1.2em;
+}
+
+input,
+select,
+textarea {
+  font-size: 1.1em;
 }
 
 // general styles
@@ -82,13 +97,17 @@ a.nav-link {
   }
 }
 
+main {
+  position: relative;
+}
+
 section {
   min-height: 126vh;
   transform: skewY(4deg);
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -7vh;
+  top: -7.2vh;
 
   padding: 0 4rem;
 
@@ -102,5 +121,23 @@ section {
   }
 }
 
+.down-arrow {
+  height: 1.5em;
+  position: absolute;
+
+  .black {
+    g {
+      fill: #000;
+    }
+  }
+  
+  .white {
+    g {
+      fill: #fff;
+    }
+  }
+}
+
 @import 'nav';
 @import 'sections';
+@import 'footer';
