@@ -288,16 +288,20 @@
       <h1>Contact</h1>
       <h2>Send us a message explaining your ideas and needs. We will respond as soon as possible.</h2>
     </div>
+
+    <DownArrow class="black" />
   </section>
 </template>
 
 <script>
   import Hexagon from '../assets/hexagon.svg';
+  import DownArrow from '../assets/down-arrow.svg';
 
   export default {
     name: 'Contact',
     components: {
-      Hexagon
+      Hexagon,
+      DownArrow
     }
   };
 </script>

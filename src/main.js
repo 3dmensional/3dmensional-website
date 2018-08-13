@@ -9,6 +9,7 @@ import 'aos/dist/aos.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter, faFacebook, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+var smoothScroll = require('smoothscroll');
 
 library.add(faTwitter, faFacebook, faFacebookF, faInstagram);
 
@@ -28,42 +29,110 @@ new Vue({
   template: '<App/>'
 });
 
-// Disable Scroll
+function scrollFunction () {
 
-disableScroll();
+  var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+  var logo = document.getElementById('logo');
 
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+  setTimeout(() => {
+    let alturaNegativa = scrollTop < innerHeight || (scrollTop < innerHeight * 3 && scrollTop > innerHeight * 2);
 
-function preventDefault (e) {
-  e = e || window.event;
-  if (e.preventDefault)
-      e.preventDefault();
-  e.returnValue = false;
+    if (alturaNegativa && !logo.classList.contains('negative'))
+      logo.classList = 'negative';
+    else if (!logo.classList.contains('positive'))
+      logo.classList = 'positive';
+  }, 500);
 }
 
-function preventDefaultForScrollKeys (e) {
-    if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
+(function () {
+  scrollFunction();
+
+  var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+  if (scrollTop < innerHeight) document.body.classList.value = 'Home';
+  else if (scrollTop < innerHeight * 2) document.body.classList.value = 'About';
+  else if (scrollTop < innerHeight * 3) document.body.classList.value = 'Services';
+  else document.body.classList.value = 'Contact';
+})();
+
+window.addEventListener('wheel', (event) => {
+  var logo = document.getElementById('logo');
+
+  if (event.deltaY > 40) {
+    // Scroll bottom
+
+    switch (document.body.classList.value) {
+      case 'Home':
+        document.body.classList.remove('Home');
+        smoothScroll(document.getElementById('About'));
+        setTimeout(() => {
+          document.body.classList.add('About');
+        }, 200);
+        if (!logo.classList.contains('positive'))
+          logo.classList = 'positive';
+        break;
+
+      case 'About':
+        document.body.classList.remove('About');
+        smoothScroll(document.getElementById('Services'));
+        setTimeout(() => {
+          document.body.classList.add('Services');
+        }, 200);
+        if (!logo.classList.contains('negative'))
+          logo.classList = 'negative';
+        break;
+
+      case 'Services':
+        document.body.classList.remove('Services');
+        smoothScroll(document.getElementById('Contact'));
+        setTimeout(() => {
+          document.body.classList.add('Contact');
+        }, 200);
+        if (!logo.classList.contains('positive'))
+          logo.classList = 'positve';
+        break;
+
+      default:
+        break;
     }
-}
+  } else if (event.deltaY < -40) {
+    // Scroll top
 
-function disableScroll () {
-  if (window.addEventListener) // older FF
-      window.addEventListener('DOMMouseScroll', preventDefault, false);
-  window.onwheel = preventDefault; // modern standard
-  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-  window.ontouchmove = preventDefault; // mobile
-  document.onkeydown = preventDefaultForScrollKeys;
-}
+    switch (document.body.classList.value) {
+      case 'About':
+        document.body.classList.remove('About');
+        smoothScroll(document.getElementById('Home'));
+        setTimeout(() => {
+          document.body.classList.add('Home');
+        }, 200);
+        if (!logo.classList.contains('negative'))
+          logo.classList = 'negative';
+        break;
 
-// function enableScroll () {
-//     if (window.removeEventListener)
-//         window.removeEventListener('DOMMouseScroll', preventDefault, false);
-//     window.onmousewheel = document.onmousewheel = null;
-//     window.onwheel = null;
-//     window.ontouchmove = null;
-//     document.onkeydown = null;
-// }
+      case 'Services':
+        document.body.classList.remove('Services');
+        smoothScroll(document.getElementById('About'));
+        setTimeout(() => {
+          document.body.classList.add('About');
+        }, 200);
+        if (!logo.classList.contains('positive'))
+          logo.classList = 'positive';
+        break;
+
+      case 'Contact':
+        document.body.classList.remove('Contact');
+        smoothScroll(document.getElementById('Services'));
+        setTimeout(() => {
+          document.body.classList.add('Services');
+        }, 200);
+        if (!logo.classList.contains('negative'))
+          logo.classList = 'negative';
+        break;
+
+      default:
+        break;
+    }
+  } else
+    event.preventDefault();
+
+});

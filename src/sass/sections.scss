@@ -4,17 +4,25 @@
     position: absolute;
     left: 2em;
   }
+
+  .arrow-container {
+    top: 40em;
+  }
 }
 
 .about-us {
   min-height: 105vh;
   background: linear-gradient(to right, white, rgb(220, 220, 220));
+  align-items: flex-start;
+
+  padding-top: 2em;
+
   p {
     text-align: center;
   }
 
-  .down-arrow {
-    top: 39em;
+  .arrow-container {
+    top: 36em;
   }
 }
 
@@ -123,6 +131,10 @@
     }
   }
 
+  .arrow-container {
+    top: 45em;
+  }
+
   overflow: hidden;
 }
 
@@ -131,17 +143,23 @@
   background-image: url('../src/assets/contact-banner.jpg');
   background-size: cover;
   background-position: center center;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
   min-height: 100vh;
   transform: skewY(0);
-
-  justify-content: space-between;
   align-items: flex-start;
   padding-top: 7em;
   padding-bottom: 5em;
-  top: -15vh;
+  top: -14vh;
 
-  & > * {
+  & > div {
     width: 50%;
+    transform: skewY(0);
+  }
+
+  & > svg {
     transform: skewY(0);
   }
 
@@ -209,6 +227,10 @@
     width: 100%;
     filter: drop-shadow(16px 16px 6px rgba(0, 0, 0, .3));
     z-index: -2;
+  }
+
+  .arrow-container {
+    top: 38em;
   }
 
 }

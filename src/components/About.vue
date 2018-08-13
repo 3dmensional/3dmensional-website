@@ -9,7 +9,6 @@
       </p>
     </div>
 
-    
     <ArrowDown class="black"/>
   </section>
 </template>

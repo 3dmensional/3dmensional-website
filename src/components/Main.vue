@@ -6,7 +6,12 @@
       <!-- Content page -->
       <section id="Home" class="d-flex banner">
         <h1>Here the amazing title</h1>
-        <span class="icon icon-next">down</span>
+
+        <div class="arrow-container">
+          
+          <a href="javascript:;" @click='scroll' ></a>
+          <DownArrow class="down-arrow white" @click="scroll"/>
+        </div>
       </section>
       <About />
       <Services></Services>
@@ -24,6 +29,9 @@
   import Services from './Services';
   import Contact from './Contact';
   import Footer from './Footer';
+  import DownArrow from '../assets/down-arrow.svg';
+
+  const smoothScroll = require('smoothscroll');
 
   export default {
     name: 'Main',
@@ -33,7 +41,14 @@
       About,
       Services,
       Contact,
-      Footer
+      Footer,
+      DownArrow
+    },
+    methods: {
+      scroll: (event) => {
+        console.log(event);
+        smoothScroll(document.getElementById('About'));
+      }
     }
   };
 </script>

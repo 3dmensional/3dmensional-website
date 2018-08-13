@@ -3,7 +3,7 @@
     <nav class="d-flex fixed">
       <figure>
         <a href="#">
-          <Logo id="logo" class="negative"></Logo>
+          <Logo id="logo"></Logo>
         </a>
 
       </figure>
@@ -35,11 +35,15 @@
     methods: {
       scroll: (event) => {
         event.preventDefault();
+        var body = document.getElementsByTagName('body')[0];
         var target = event.target.href.replace('#', '');
         target = target.split('/');
         var last = target[target.length - 1];
         var element = (last === '') ? document.getElementById('Home') : document.getElementById(last);
         smoothScroll(element, 1000);
+
+        body.classList.value = '';
+        body.classList.add((last) === '' ? 'Home' : last);
 
         var logo = document.getElementById('logo');
 

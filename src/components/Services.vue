@@ -40,18 +40,22 @@
         <Cube />
       </div>
     </div>
+
+    <DownArrow class="white" />
   </section>
 </template>
 
 <script>
   import Chevron from '../assets/chevron.svg';
   import Cube from '../assets/cube.svg';
+  import DownArrow from '../assets/down-arrow.svg';
 
   export default {
     name: 'Services',
     components: {
       Chevron,
-      Cube
+      Cube,
+      DownArrow
     },
     data: () => {
       return {

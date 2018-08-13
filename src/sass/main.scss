@@ -121,17 +121,28 @@ section {
   }
 }
 
-.down-arrow {
+.arrow-container {
   height: 1.5em;
+  width: 1.5em;
   position: absolute;
 
-  .black {
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.down-arrow {
+  height: 1.5em;
+
+  &.black {
     g {
       fill: #000;
     }
   }
-  
-  .white {
+
+  &.white {
     g {
       fill: #fff;
     }
