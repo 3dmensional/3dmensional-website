@@ -29,6 +29,8 @@ new Vue({
   template: '<App/>'
 });
 
+// Set the logo color when scroll
+
 function scrollFunction () {
 
   var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
@@ -44,6 +46,7 @@ function scrollFunction () {
   }, 500);
 }
 
+// set logo color on page load
 (function () {
   scrollFunction();
 
@@ -52,87 +55,119 @@ function scrollFunction () {
   if (scrollTop < innerHeight) document.body.classList.value = 'Home';
   else if (scrollTop < innerHeight * 2) document.body.classList.value = 'About';
   else if (scrollTop < innerHeight * 3) document.body.classList.value = 'Services';
+  // eslint-disable-next-line
   else document.body.classList.value = 'Contact';
+
 })();
 
+// Scroll with wheel
 window.addEventListener('wheel', (event) => {
-  var logo = document.getElementById('logo');
-
   if (event.deltaY > 40) {
     // Scroll bottom
+    scrollDown();
 
-    switch (document.body.classList.value) {
-      case 'Home':
-        document.body.classList.remove('Home');
-        smoothScroll(document.getElementById('About'));
-        setTimeout(() => {
-          document.body.classList.add('About');
-        }, 200);
-        if (!logo.classList.contains('positive'))
-          logo.classList = 'positive';
-        break;
-
-      case 'About':
-        document.body.classList.remove('About');
-        smoothScroll(document.getElementById('Services'));
-        setTimeout(() => {
-          document.body.classList.add('Services');
-        }, 200);
-        if (!logo.classList.contains('negative'))
-          logo.classList = 'negative';
-        break;
-
-      case 'Services':
-        document.body.classList.remove('Services');
-        smoothScroll(document.getElementById('Contact'));
-        setTimeout(() => {
-          document.body.classList.add('Contact');
-        }, 200);
-        if (!logo.classList.contains('positive'))
-          logo.classList = 'positve';
-        break;
-
-      default:
-        break;
-    }
   } else if (event.deltaY < -40) {
     // Scroll top
+    scrollUp();
 
-    switch (document.body.classList.value) {
-      case 'About':
-        document.body.classList.remove('About');
-        smoothScroll(document.getElementById('Home'));
-        setTimeout(() => {
-          document.body.classList.add('Home');
-        }, 200);
-        if (!logo.classList.contains('negative'))
-          logo.classList = 'negative';
-        break;
-
-      case 'Services':
-        document.body.classList.remove('Services');
-        smoothScroll(document.getElementById('About'));
-        setTimeout(() => {
-          document.body.classList.add('About');
-        }, 200);
-        if (!logo.classList.contains('positive'))
-          logo.classList = 'positive';
-        break;
-
-      case 'Contact':
-        document.body.classList.remove('Contact');
-        smoothScroll(document.getElementById('Services'));
-        setTimeout(() => {
-          document.body.classList.add('Services');
-        }, 200);
-        if (!logo.classList.contains('negative'))
-          logo.classList = 'negative';
-        break;
-
-      default:
-        break;
-    }
   } else
     event.preventDefault();
 
 });
+
+function scrollDown () {
+
+  var logo = document.getElementById('logo');
+
+  switch (document.body.classList.value) {
+    case 'Home':
+      document.body.classList.remove('Home');
+      smoothScroll(document.getElementById('About'));
+      setTimeout(() => {
+        document.body.classList.add('About');
+
+        if (!logo.classList.contains('positive'))
+          logo.classList = 'positive';
+      }, 200);
+      break;
+
+    case 'About':
+      document.body.classList.remove('About');
+      smoothScroll(document.getElementById('Services'));
+      setTimeout(() => {
+        document.body.classList.add('Services');
+
+        if (!logo.classList.contains('negative'))
+          logo.classList = 'negative';
+      }, 200);
+      break;
+
+    case 'Services':
+      document.body.classList.remove('Services');
+      smoothScroll(document.getElementById('Contact'));
+      setTimeout(() => {
+        document.body.classList.add('Contact');
+
+        if (!logo.classList.contains('positive'))
+          logo.classList = 'positive';
+      }, 200);
+      break;
+
+    default:
+      break;
+  }
+}
+
+function scrollUp () {
+
+  var logo = document.getElementById('logo');
+
+  switch (document.body.classList.value) {
+    case 'About':
+      document.body.classList.remove('About');
+      smoothScroll(document.getElementById('Home'));
+      setTimeout(() => {
+        document.body.classList.add('Home');
+
+        if (!logo.classList.contains('negative'))
+          logo.classList = 'negative';
+      }, 200);
+      break;
+
+    case 'Services':
+      document.body.classList.remove('Services');
+      smoothScroll(document.getElementById('About'));
+      setTimeout(() => {
+        document.body.classList.add('About');
+
+        if (!logo.classList.contains('positive'))
+          logo.classList = 'positive';
+      }, 200);
+      break;
+
+    case 'Contact':
+      document.body.classList.remove('Contact');
+      smoothScroll(document.getElementById('Services'));
+      setTimeout(() => {
+        document.body.classList.add('Services');
+
+        if (!logo.classList.contains('negative'))
+          logo.classList = 'negative';
+      }, 200);
+      break;
+
+    default:
+      break;
+  }
+}
+window.addEventListener('keydown', function (e) {
+  if (e.keyCode === 38) {
+    // Scroll to top
+    e.preventDefault();
+    scrollUp();
+  } else if (e.keyCode === 40) {
+    // Scroll to down
+    e.preventDefault();
+    scrollDown();
+  }
+}, false);

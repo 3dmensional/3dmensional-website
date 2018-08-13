@@ -8,7 +8,6 @@
         <h1>Here the amazing title</h1>
 
         <div class="arrow-container">
-          
           <a href="javascript:;" @click='scroll' ></a>
           <DownArrow class="down-arrow white" @click="scroll"/>
         </div>
