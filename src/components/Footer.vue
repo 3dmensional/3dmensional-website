@@ -37,7 +37,7 @@
           </a>
         </div>
 
-        <span>
+        <span v-if="!isMobileDevice()">
           Síguenos en nuestras redes sociales como <b>3DmensionalG</b>
         </span>
       </div>
@@ -69,6 +69,9 @@
             logo.classList = 'negative';
         }, 1000);
 
+      },
+      isMobileDevice: () => {
+        return window.innerWidth < 576;
       }
     }
   };

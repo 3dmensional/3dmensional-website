@@ -5,17 +5,17 @@
       <form action="" method="post" class="d-flex">
         <div class="d-flex input-group">
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name">
+          <input type="text" id="name" name="name" placeholder="Name">
         </div>
 
         <div class="d-flex input-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email">
+          <input type="email" id="email" name="email" placeholder="Email">
         </div>
 
         <div class="d-flex input-group">
           <label for="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone">
+          <input type="tel" id="phone" name="phone" placeholder="Phone">
         </div>
 
         <div class="d-flex input-group">
@@ -276,7 +276,7 @@
 
         <div class="input-group">
           <label for="msg">Message</label>
-          <textarea name="msg" id="msg" rows="5"></textarea>
+          <textarea name="msg" id="msg" rows="5" placeholder="Write here your ideas..."></textarea>
         </div>
 
         <input class="btn" type="submit" value="SEND">
@@ -288,20 +288,16 @@
       <h1>Contact</h1>
       <h2>Send us a message explaining your ideas and needs. We will respond as soon as possible.</h2>
     </div>
-
-    <DownArrow class="black" />
   </section>
 </template>
 
 <script>
   import Hexagon from '../assets/hexagon.svg';
-  import DownArrow from '../assets/down-arrow.svg';
 
   export default {
     name: 'Contact',
     components: {
-      Hexagon,
-      DownArrow
+      Hexagon
     }
   };
 </script>

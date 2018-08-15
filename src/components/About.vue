@@ -8,19 +8,13 @@
       <p>Morbi enim mauris, eleifend a scelerisque et, euismod non turpis. Cras sit amet orci lobortis, sodales ligula at, dapibus purus. Aliquam ante erat, rhoncus at dolor et, pretium tempus ligula. Cras varius urna sed dui pharetra, in viverra turpis bibendum. Suspendisse non porta orci, ut suscipit magna. Nullam blandit placerat leo eget feugiat. Aliquam lobortis diam et diam volutpat convallis imperdiet in erat. Nullam viverra enim sem, a iaculis lectus tincidunt sed. Quisque orci purus, laoreet vitae ipsum dapibus, tincidunt scelerisque tellus. Sed dignissim varius consequat. Donec accumsan sapien ex, vitae convallis ipsum auctor ut. Aenean elementum sapien a sem aliquam, eget vestibulum neque laoreet. Sed faucibus leo ligula.
       </p>
     </div>
-
-    <ArrowDown class="black"/>
   </section>
 </template>
 
 <script>
-  import ArrowDown from '../assets/down-arrow.svg';
 
   export default {
-    name: 'About',
-    components: {
-      ArrowDown
-    }
+    name: 'About'
   };
 
 </script>

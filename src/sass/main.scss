@@ -14,13 +14,16 @@
   src: url('~@/assets/fonts/walkway/Walkway Black.ttf');
 }
 
-
 * {
   list-style: none;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Walkway', Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #000;
 }
 
 ::-webkit-scrollbar {
@@ -153,3 +156,4 @@ section {
 @import 'nav';
 @import 'sections';
 @import 'footer';
+@import 'responsive';

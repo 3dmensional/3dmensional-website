@@ -3,7 +3,8 @@
     <nav class="d-flex fixed">
       <figure>
         <a href="#">
-          <Logo id="logo"></Logo>
+          <Logo v-if="!isMobileDevice()" id="logo"></Logo>
+          <LogoIcon v-else id="logo" />
         </a>
 
       </figure>
@@ -24,13 +25,15 @@
 
 <script>
   import Logo from '../assets/logo-neg.svg';
+  import LogoIcon from '../assets/logo-responsive.svg';
 
   var smoothScroll = require('smoothscroll');
 
   export default {
     name: 'Nav',
     components: {
-      Logo
+      Logo,
+      LogoIcon
     },
     methods: {
       scroll: (event) => {
@@ -54,6 +57,10 @@
             logo.classList = 'negative';
         }, 1000);
 
+      },
+
+      isMobileDevice: () => {
+        return window.innerWidth < 768;
       }
     }
   };

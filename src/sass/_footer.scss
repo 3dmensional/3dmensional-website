@@ -6,24 +6,25 @@ footer {
   width: 100%;
   color: white;
   position: absolute;
-  bottom: -35vh;
-  z-index: 10;
+  bottom: -34vh;
 
   padding: 5em;
 
   .container {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 1em;    
+    width: 100%;
+
+    & > * {
+      grid-column: span 2;
+      align-self: center;
+      justify-self: center;
+  
+    }
   }
 
-  .logo,
-  .nav,
-  .social {
-    grid-column: span 2;
-    align-self: center;
-    justify-self: center;
-
-  }
 
   .nav {
     a {
