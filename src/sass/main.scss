@@ -148,6 +148,14 @@ section {
   padding: 5px;
 }
 
+.alert-success {
+  backgroud-color: rgba(63, 191, 63, 0.4);
+  color: rgba(63, 191, 63, 1);
+  position: absolute;
+  top: 0;
+  padding: 5px;
+}
+
 @import 'nav';
 @import 'sections';
 @import 'footer';
