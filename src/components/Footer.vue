@@ -23,15 +23,15 @@
       <div class="social">
 
         <div class="icons">
-          <a href="https://www.facebook.com/3dmensionalg/">
+          <a href="">
 
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
           </a>
-          <a href="https://www.twitter.com/3dmensionalg/">
+          <a href="">
 
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" />
           </a>
-          <a href="https://www.instagram.com/3dmensionalg/">
+          <a href="">
 
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" />
           </a>
