@@ -23,15 +23,15 @@
       <div class="social">
 
         <div class="icons">
-          <a href="https://www.facebook.com/3dmensionalg/">
+          <a target="_blank" href="https://www.facebook.com/3dmensionalg/">
 
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
           </a>
-          <a href="https://www.twitter.com/3dmensionalg/">
+          <a target="_blank" href="https://www.twitter.com/3dmensionalg/">
 
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" />
           </a>
-          <a href="https://www.instagram.com/3dmensionalg/">
+          <a target="_blank" href="https://www.instagram.com/3dmensionalg/">
 
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" />
           </a>
