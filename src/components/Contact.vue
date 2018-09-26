@@ -2,7 +2,10 @@
   <section id="Contact" class="d-flex contact">
     <div class="form-container d-flex">
 
-      <form action="" method="post" class="d-flex">
+      <span v-if="error" class="alert-error">{{ error }}</span>
+      <span v-if="msg" class="alert-success">{{ msg }}</span>
+
+      <form @submit.prevent="sendEmail" method="post" class="d-flex">
         <div class="d-flex input-group">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" placeholder="Name">
@@ -298,6 +301,51 @@
     name: 'Contact',
     components: {
       Hexagon
+    },
+    data: () => {
+        return {
+            error: null,
+            msg: null
+        };
+    },
+    methods: {
+        sendEmail (event) {
+
+            const emailjs = require('emailjs-com');
+
+            emailjs.init('user_Bgy2xaek6tX47QJkkNfti');
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let location = document.getElementById('location').value;
+            let msg = document.getElementById('msg').value;
+
+            console.log(event);
+
+            if (
+                name.trim() === '' ||
+                email.trim() === '' ||
+                phone.trim() === '' ||
+                location === 'default' ||
+                msg.trim() === ''
+            ) {
+                this.sendError('Some fields are invalid');
+                return;
+            }
+
+            emailjs.send('gmail', 'contact', {'name': name, 'email': email, 'phone': phone, 'message': msg, 'ejs_dashboard__test_template': true});
+
+            this.setMsg();
+        },
+
+        sendError (error) {
+            this.error = error;
+        },
+
+        setMsg () {
+            this.msg = 'Email sent. Thanks you very much. We answer you as soon as posible';
+        }
     }
   };
 </script>
