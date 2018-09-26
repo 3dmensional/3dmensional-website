@@ -5,9 +5,8 @@
 
       <div class="d-flex logo">
         <figure>
-
         </figure>
-        <span class="slogan">Slogan here!</span>
+        <span class="slogan">CONNECTING DREAMS</span>
         <span class="copyright">
           Copyright &copy; 2018. All rights reserved.
         </span>

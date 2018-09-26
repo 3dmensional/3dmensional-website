@@ -30,6 +30,16 @@
 // Medium devices (tablets, 768px and 992px)
 @media (max-width: 992px) {
 
+  .banner {
+    background-position: center right;
+
+    h1 {
+      padding: 0 1em;
+      line-height: 1em;
+      left: 0;
+    }
+  }
+
   nav {
     background: #000;
 
@@ -48,6 +58,7 @@
     transform: skewY(0deg);
     min-height: 100vh;
     top: 0;
+    padding: 0 1.5em;
 
     & > * {
       transform: skewY(0deg);
@@ -64,13 +75,26 @@
 
     .chevron {
       width: 100vw;
+      height: auto;
       transform: rotate(-90deg);
+    }
+
+    .d-grid {
+      max-height: 70vh;
+
+      h1 {
+        align-self: center;
+        justify-self: center;
+      }
+
+      margin: 0 1em;
     }
 
     h1,
     p,
     .services-elements {
       grid-column: 1 / span 2;
+      grid-row: span 1;
     }
 
     .services-elements {
@@ -122,6 +146,11 @@
     .contact-content {
       width: 100%;
       text-align: center;
+      padding-top: 0;
+
+      h1 {
+        color: white;
+      }
     }
   }
 }
@@ -142,7 +171,7 @@
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 576px) {
   .contact .form-container {
-    width: 100%;
+    width: 120%;
   }
 
   footer {

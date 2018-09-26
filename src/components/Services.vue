@@ -1,5 +1,48 @@
 <template>
-  <section class="d-flex services">
+  <section v-if="isMobileDevice()"  id="Services" class="d-flex services">
+    <div class="chevron-container">
+      <div style="height: 100%" class="chevron-svg" data-aos="fade-down" data-aos-duration="500" data-aos-delay="200">
+        <Chevron class="chevron"></Chevron>
+      </div>
+    </div>
+    <div class="d-grid">
+      <transition name="fade" appear>
+        <h1 class="show fade-element d-flex">{{ title }}</h1>
+      </transition>
+
+      <transition name="fade" appear>
+        <p class="show fade-element">
+          {{ text }}
+        </p>
+      </transition>
+      <div class="d-grid services-elements">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="d-flex services-controller">
+
+      <div class="active action-container">
+        <a href="javascript:;" @click.prevent="title = 'Development'; text = texts[0]; setAppear(title)"></a>
+        <Cube />
+      </div>
+
+      <div class="action-container">
+        <a href="javascript:;" @click.prevent="title = 'Design'; text = texts[1]; setAppear(title)"></a>
+        <Cube />
+      </div>
+
+      <div class="action-container">
+        <a href="javascript:;" @click.prevent="title = 'Marketing'; text = texts[2]; setAppear(title)"></a>
+        <Cube />
+      </div>
+    </div>
+  </section>
+
+  <section v-else  class="d-flex services">
     <div class="chevron-container">
       <div style="height: 100%" class="chevron-svg" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
         <Chevron id="Services" class="chevron"></Chevron>
@@ -95,7 +138,10 @@
             controllers[2].classList.add('active');
             break;
         }
+      },
 
+      isMobileDevice: () => {
+        return window.innerWidth < 992;
       }
     }
   };
