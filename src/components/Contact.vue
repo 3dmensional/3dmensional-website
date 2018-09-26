@@ -286,7 +286,7 @@
     </div>
     <div class="contact-content">
       <h1>Contact</h1>
-      <h2>Send us a message explaining your ideas and needs. We will respond as soon as possible.</h2>
+      <!-- <h2>Send us a message explaining your ideas and needs. We will respond as soon as possible.</h2> -->
     </div>
   </section>
 </template>

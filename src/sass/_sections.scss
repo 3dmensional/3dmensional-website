@@ -1,12 +1,28 @@
 .banner {
 
+  background-image: url('../src/assets/banner-website.jpg');
+  background-position: center;
+  background-size: cover;
+
   h1 {
     position: absolute;
     left: 2em;
+    font-size: 2.5em;
   }
 
   .arrow-container {
     top: 95vh;
+    height: 1.5em;
+    width: 1.5em;
+    position: absolute;
+
+    a {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
   }
 }
 
@@ -146,6 +162,10 @@
   padding-top: 7em;
   padding-bottom: 5em;
   top: -14vh;
+
+  .contact-content {
+    padding-top: 55vh;
+  }
 
   & > div {
     width: 50%;

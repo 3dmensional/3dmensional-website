@@ -5,7 +5,7 @@
     <div class="content">
       <!-- Content page -->
       <section id="Home" class="d-flex banner">
-        <h1>Here the amazing title</h1>
+        <h1>Connecting dreams</h1>
 
         <div class="arrow-container">
           <a href="javascript:;" @click='scroll' ></a>
@@ -45,8 +45,19 @@
     },
     methods: {
       scroll: (event) => {
-        console.log(event);
-        smoothScroll(document.getElementById('About'));
+        event.preventDefault();
+        var body = document.getElementsByTagName('body')[0];
+        var element = document.getElementById('About');
+        smoothScroll(element, 1000);
+
+        body.classList.value = '';
+        body.classList.add('About');
+
+        var logo = document.getElementById('logo');
+
+        setTimeout(() => {
+          logo.classList = 'positive';
+        }, 1000);
       }
     }
   };

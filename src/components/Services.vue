@@ -26,17 +26,17 @@
     <div class="d-flex services-controller">
 
       <div class="active action-container">
-        <a href="javascript:;" @click.prevent="title = 'Development'; setAppear(title)"></a>
+        <a href="javascript:;" @click.prevent="title = 'Development'; text = texts[0]; setAppear(title)"></a>
         <Cube />
       </div>
 
       <div class="action-container">
-        <a href="javascript:;" @click.prevent="title = 'Design'; setAppear(title)"></a>
+        <a href="javascript:;" @click.prevent="title = 'Design'; text = texts[1]; setAppear(title)"></a>
         <Cube />
       </div>
 
       <div class="action-container">
-        <a href="javascript:;" @click.prevent="title = 'Marketing'; setAppear(title)"></a>
+        <a href="javascript:;" @click.prevent="title = 'Marketing'; text = texts[2]; setAppear(title)"></a>
         <Cube />
       </div>
     </div>
@@ -56,8 +56,13 @@
     data: () => {
       return {
         title: 'Development',
-        text: 'Hello World',
-        active: 0
+        text: 'Nowadays the world is advancing more and more in the technological development, and it is important that your business is not left behind during its growth. That\'s why we offer a wide variety of development options in which we can provide the best advice depending on the need of your project.',
+
+        texts: [
+          'Nowadays the world is advancing more and more in the technological development, and it is important that your business is not left behind during its growth. That\'s why we offer a wide variety of development options in which we can provide the best advice depending on the need of your project.',
+          'The way we present ourselves to the world is one of the most important things. That is why we are fully convinced that having a good brand image is a point in favor of your company. We focus on capturing the attention of your target audience and transmitting values through different design areas.',
+          'Considering the impact and scope offered by a good positioning on the web, we study and analyze the target audience in order to connect your company with your customers. Through careful digital marketing strategies, SEO and RRSS we will provide the best advice to position your company on the web.'
+        ]
 
       };
     },
