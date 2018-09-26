@@ -141,18 +141,20 @@ section {
 }
 
 .alert-error {
-  background-color: rgba(191, 63, 63, 0.4);
-  color: rgba(191, 63, 63, 1);
+  background-color: rgba(191, 63, 63, 0.8);
+  color: rgb(255, 214, 214);
   position: absolute;
-  top: 0;
+  top: -30px;
+  transform: skewY(0deg);
   padding: 5px;
 }
 
 .alert-success {
-  backgroud-color: rgba(63, 191, 63, 0.4);
-  color: rgba(63, 191, 63, 1);
+  background-color: rgba(63, 191, 63, 0.8);
+  color: rgb(214, 255, 214);
   position: absolute;
-  top: 0;
+  top: -30px;
+  transform: skewY(0deg);
   padding: 5px;
 }
 

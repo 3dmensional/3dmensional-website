@@ -1,9 +1,9 @@
 <template>
   <section id="Contact" class="d-flex contact">
-    <div class="form-container d-flex">
 
+    <div class="form-container d-flex">
       <span v-if="error" class="alert-error">{{ error }}</span>
-      <span v-if="msg" class="alert-success">{{ msg }}</span>
+      <span v-else-if="msg" class="alert-success">{{ msg }}</span>
 
       <form @submit.prevent="sendEmail" method="post" class="d-flex">
         <div class="d-flex input-group">
@@ -321,30 +321,46 @@
             let location = document.getElementById('location').value;
             let msg = document.getElementById('msg').value;
 
-            console.log(event);
-
             if (
                 name.trim() === '' ||
                 email.trim() === '' ||
                 phone.trim() === '' ||
                 location === 'default' ||
                 msg.trim() === ''
-            ) {
-                this.sendError('Some fields are invalid');
-                return;
+            ) this.sendError('Some fields are invalid');
+            else {
+
+                emailjs.send('gmail', 'contact', {'name': name, 'email': email, 'phone': phone, 'message': msg, 'location': location, 'ejs_dashboard__test_template': true});
+
+                this.setMsg();
+                this.clearForm();
             }
 
-            emailjs.send('gmail', 'contact', {'name': name, 'email': email, 'phone': phone, 'message': msg, 'ejs_dashboard__test_template': true});
-
-            this.setMsg();
         },
 
         sendError (error) {
             this.error = error;
+
+            setTimeout(this.clearMsgs, 3000);
         },
 
         setMsg () {
-            this.msg = 'Email sent. Thanks you very much. We answer you as soon as posible';
+            this.msg = 'Thanks. We answer you as soon as posible';
+
+            setTimeout(this.clearMsgs, 3000);
+        },
+
+        clearMsgs () {
+            this.error = null;
+            this.msg = null;
+        },
+
+        clearForm () {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('location').value = 'default';
+            document.getElementById('msg').value = '';
         }
     }
   };
