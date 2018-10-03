@@ -51,19 +51,17 @@
           {{ text }}
         </p>
       <div class="services-elements">
-          <div>
-            <pre v-if="active === 1">
-              <code>
-                <vue-typer
-                  :text="variables"
-                  :pre-erase-delay="2000"
-                  :pre-type-delay="1000"
-                  :type-delay="100"
-                  :erase-delay='90'
-                  erase-style='backspace'></vue-typer>
-              </code>
-            </pre>
-          </div>
+        <pre v-if="active === 1">
+          <code>
+            <vue-typer
+              :text="variables"
+              :pre-erase-delay="2000"
+              :pre-type-delay="1000"
+              :type-delay="100"
+              :erase-delay='90'
+              erase-style='backspace'></vue-typer>
+          </code>
+        </pre>
       </div>
     </div>
 
