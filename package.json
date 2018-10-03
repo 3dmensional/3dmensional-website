@@ -22,8 +22,11 @@
     "i": "^0.3.6",
     "npm": "^6.3.0",
     "smoothscroll": "^0.4.0",
+    "typed.js": "^2.0.9",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-typed-js": "^0.1.2",
+    "vue-typer": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

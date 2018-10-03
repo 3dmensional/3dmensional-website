@@ -3,6 +3,7 @@
   background-image: url('../src/assets/banner-website.jpg');
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 
   h1 {
     position: absolute;
@@ -59,15 +60,9 @@
     grid-template-rows: repeat(3, 1fr);
   }
 
-  .show {
-    opacity: 1;
-    transition: all 1s ease;
-  }
-
   h1 {
     justify-self: center;
     align-self: flex-end;
-    opacity: 0;
 
     grid-column: 2 / span 1;
   }
@@ -75,35 +70,21 @@
   p {
     text-align: center;
     margin: 0;
-    opacity: 0;
 
     grid-column: 1 / span 1;
     grid-row: 2 / span 2;
+  }
+
+  .service-icon {
+    width: 80px;
   }
 
   .services-elements {
 
     padding: 0 7em;
 
-    justify-self: center;
-    align-self: center;
-
     grid-column: 2 / span 1;
-    grid-row: 3 / span 1;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
-    span {
-      background-color: rgba($color: #fff, $alpha: .6);
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      margin: 1em 0;
-
-      justify-self: center;
-      align-self: center;
-    }
+    grid-row: 2 / span 2;
   }
 
   .services-controller {
@@ -152,6 +133,7 @@
   background-image: url('../src/assets/contact-banner.jpg');
   background-size: cover;
   background-position: center center;
+  background-attachment: scroll;
   flex-wrap: wrap;
 
   justify-content: center;

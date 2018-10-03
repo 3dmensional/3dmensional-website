@@ -5,21 +5,23 @@ import App from './App';
 import router from './router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+// import { VueTypedJs } from 'vue-typed-js';
+import VueTyperPlugin from 'vue-typer';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter, faFacebook, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 var smoothScroll = require('smoothscroll');
 
 library.add(faTwitter, faFacebook, faFacebookF, faInstagram);
 
+// Vue.use(VueTypedJs);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
 Vue.config.productionTip = false;
-
 AOS.init();
 
-Vue.config.productionTip = false;
+Vue.use(VueTyperPlugin);
 
 /* eslint-disable no-new */
 new Vue({
